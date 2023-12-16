@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>Our Apartments</h2>
+                    <div class="bt-option">
+                        <a href="{% url 'index' %}">Home</a>
+                        <a href="{% url 'apartments_list' %}">Apartments</a>
+                        <span>{{apartment.title}}</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="room-details-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="room-details-item">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 ">
+            
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            
+                            {% for image in apartment.apartment_images  %}
+                            <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+                                <img class="d-block w-100" src="{{image.image.url}}" alt="First slide">
+                            </div>           
+                            {% endfor %}
+                            
+            
+            
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        </div>
+            
+                    </div>
+                    </div>
+                    <div class="rd-text">
+                        {% block messages %}
+  {% if messages %}
+    {% for message in messages %}
+      <div style="color:red" class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
+                        <div class="rd-title">
+                            <h3>{{apartment.title}}</h3>
+                            <div class="rdt-right">
+                                <div class="rating">
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star-half_alt"></i>
+                                </div>
+                                <button data-toggle="modal" class='btn btn-warning' data-target="#exampleModal" >Book Now</button>
+                            </div>
+                        </div>
+                        <h2>£{{apartment.price}}<span> 1 Night</span></h2>
+                        <table>
+                            <tbody>
+
+                                <tr>
+                                    <td class="r-o">Capacity:</td>
+                                    <td>Max persion {{apartment.capacity}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Bed:</td>
+                                    <td>{{apartment.bed}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="r-o">Services:</td>
+                                    <td>{{apartment.services}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div>
+                        {{apartment.description|safe}}
+                        </div>
+                    </div>
+                </div>
+                <div class="rd-reviews">
+                    <h4>Reviews</h4>
+                    <div class="review-item">
+                        <div class="ri-pic">
+                            <img src="{% static 'img/room/avatar/avatar-1.jpg' %}" alt="">
+                        </div>
+                        <div class="ri-text">
+                            <span>27 Aug 2019</span>
+                            <div class="rating">
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star-half_alt"></i>
+                            </div>
+                            <h5>Brandon Kelley</h5>
+                            <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                                adipisci velit, sed quia non numquam eius modi tempora. incidunt ut labore et dolore
+                                magnam.</p>
+                        </div>
+                    </div>
+                    <div class="review-item">
+                        <div class="ri-pic">
+                            <img src="{% static 'img/room/avatar/avatar-2.jpg' %}" alt="">
+                        </div>
+                        <div class="ri-text">
+                            <span>27 Aug 2019</span>
+                            <div class="rating">
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star"></i>
+                                <i class="icon_star-half_alt"></i>
+                            </div>
+                            <h5>Brandon Kelley</h5>
+                            <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                                adipisci velit, sed quia non numquam eius modi tempora. incidunt ut labore et dolore
+                                magnam.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-add">
+                    <h4>Add Review</h4>
+                    <form action="#" class="ra-form">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="text" placeholder="Name*">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="text" placeholder="Email*">
+                            </div>
+                            <div class="col-lg-12">
+                                <div>
+                                    <h5>You Rating:</h5>
+                                    <div class="rating">
+                                        <i class="icon_star"></i>
+                                        <i class="icon_star"></i>
+                                        <i class="icon_star"></i>
+                                        <i class="icon_star"></i>
+                                        <i class="icon_star-half_alt"></i>
+                                    </div>
+                                </div>
+                                <textarea placeholder="Your Review"></textarea>
+                                <button type="submit">Submit Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Book Your Apartment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="row">
+       
+                    <div class="col-xl-12 col-lg-12 ">
+                        <div class="booking-form">
+
+                            <form  method='POST'>
+                                {% csrf_token %}
+                                <input type='hidden' name='apartment' value="{{apartment.id}}">
+                                <div class="check-date">
+                                    <label for="date-in">Full Name</label>
+                                    <input required type="text" class='form-control' name='full_name' placeholder='Enter your full name'>
+                                </div>
+                                <div class="check-date">
+                                    <label for="date-in">Email</label>
+                                    <input required type="email"class='form-control' name='email' placeholder='Enter your email'>
+                                </div>
+                                <div class="check-date">
+                                    <label for="date-in">Phone</label>
+                                    <input required type="text"class='form-control' name='phone'  placeholder='Enter your phone'>
+                                </div>                  
+                                <div class='row'>
+                                    <div class='col-md-6'>
+                                        <div class="check-date">
+                                            <label for="date-in">Check In Date:</label>
+                                            <input  type="date" class="form-control " name='check_in' id="date-in">
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6'>
+                                        <div class="check-date">
+                                            <label for="date-in">Check In Time:</label>
+                                            <input required type="time" class='form-control'  name='check_in_time' id="time-in">
+                                        </div>
+                                    </div>                                    
+
+                                </div>      
+
+                                <div class='row'>
+                                    <div class='col-md-6'>
+                                        <div class="check-date">
+                                            <label for="date-in">Check Out Date:</label>
+                                            <input  type="date" class="form-control " name='check_out' id="date-out">
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6'>
+                                        <div class="check-date">
+                                            <label for="date-in">Check Out Time:</label>
+                                            <input required type="time" class='form-control'  name='check_out_time' id="time-out">
+                                        </div>
+                                    </div>                                    
+
+                                </div>     
+                                {% comment %} <div class="check-date">
+                                    <label for="date-out">Check Out:</label>
+                                    <input required type="text" class="date-input" name='check_out' id="date-out">
+                                    <i class="icon_calendar"></i>
+                                </div> {% endcomment %}
+                                <div class="select-option">
+                                    <label for="guest">Guests:</label>
+                                    <select  required class='form-control' name='guest' id="guest">
+                                        <option value="1">1 Adults</option>
+                                        <option value="2">2 Adults</option>
+                                        <option value="3">3 Adults</option>
+                                    </select>
+                                </div>
+
+                                <div class="check-date">
+                                    <button type="submit" class="btn btn-warning">Save</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+{% endblock content %}
