@@ -22,7 +22,15 @@ class ApartmentImagesAdmin(admin.StackedInline):
 #     ]
 #     list_display_links = ["id"]
 #     formfield_overrides = {models.ImageField: {'widget': AdminImageWidget}}
-
+class  ApartmentCleaningAdmin(admin.StackedInline):
+    extra = 1
+    model = ApartmentCleaningExpense
+    list_display = [
+        "id",
+    ]
+    list_display_links = ["id"]
+    formfield_overrides = {models.ImageField: {'widget': AdminImageWidget}}
+    
 class ApartmentMaintenanceAdmin(admin.StackedInline):
     extra = 1
     model = ApartmentMaintenance
@@ -87,14 +95,7 @@ class ApartmentAdmin(admin.ModelAdmin):
         form.base_fields['owner'].initial = owner.id
         return form
 
-class  ApartmentCleaningAdmin(admin.StackedInline):
-    extra = 1
-    model = ApartmentCleaningExpense
-    list_display = [
-        "id",
-    ]
-    list_display_links = ["id"]
-    formfield_overrides = {models.ImageField: {'widget': AdminImageWidget}}
+
 
 class ApartmentEarningTransactionAdmin(admin.StackedInline):
     extra = 1
