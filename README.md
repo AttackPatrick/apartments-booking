@@ -59,19 +59,19 @@ sh
 Screenshots
 
 
-Apartment Filter Interface
+<img width="1543" alt="Screenshot 2023-12-20 at 12 53 11 AM" src="https://github.com/AttackPatrick/apartments-booking/assets/129102448/3893d502-6f1b-4637-a12a-94d04b149d40">
 
 
-2 Bedroom Apartment Listing
+<img width="1280" alt="Screenshot 2023-12-20 at 12 53 44 AM" src="https://github.com/AttackPatrick/apartments-booking/assets/129102448/648c327b-ffcb-433f-b492-5f8754332baf">
 
 
-Booking Form Modal
+<img width="1226" alt="Screenshot 2023-12-20 at 12 53 54 AM" src="https://github.com/AttackPatrick/apartments-booking/assets/129102448/2bb5953f-f1b5-47da-9043-fbd889fcbbbd">
 
 
-Booking Confirmation Email
+<img width="1500" alt="Screenshot 2023-12-20 at 12 54 16 AM" src="https://github.com/AttackPatrick/apartments-booking/assets/129102448/ca032c7e-2be7-4e62-abda-b08074cd0b3a">
 
 
-Admin Dashboard for Apartment Management
+<img width="2040" alt="Screenshot 2023-12-20 at 12 55 14 AM" src="https://github.com/AttackPatrick/apartments-booking/assets/129102448/432f7704-52d0-4995-89dd-8ae96cc2a3c0">
 Contributing
 
 Contributions to improve the Apartment Booking application are welcome. Please follow these steps to contribute:
