@@ -342,9 +342,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_HOST = 'email-smtp.eu-west-2.amazonaws.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'dowelllogintest@gmail.com'  # sender's email-id
+EMAIL_HOST_USER = 'help@intoosales.com'  # sender's email-id
 # password associated with above email-id
-EMAIL_HOST_PASSWORD = 'yhzjurrzknyeciiq'
+EMAIL_HOST_PASSWORD = 'dsqarwgbrlvghtum'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATIC_URL = "/static/"
